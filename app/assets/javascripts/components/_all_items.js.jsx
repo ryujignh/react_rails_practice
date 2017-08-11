@@ -3,6 +3,10 @@
 
 var AllItems = React.createClass({
 
+  handleDelete(id) {
+    this.props.handleDelete(id);
+  },
+
   // Step 1
   // Here we are initializing items object as empty array.
   // getInitialState() {
@@ -24,6 +28,7 @@ var AllItems = React.createClass({
         <div key={item.id}>
           <h3>{item.name}</h3>
           <p>{item.description}</p>
+          <button onClick={this.handleDelete.bind(this, item.id)}>Delete</button>
         </div>
       )
     });
