@@ -1,6 +1,4 @@
-class Api::V1::ItemsController < ApplicationController
-  respond_to :json
-
+class Api::V1::ItemsController < Api::V1::BaseController
   # The respond_with method is part of the responders gem and will return a JSON object with the results of each action in the controller.
 
   def index

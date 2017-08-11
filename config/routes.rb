@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'side#index'
+  root to: 'site#index'
 
   namespace :api do
     namespace :v1 do
