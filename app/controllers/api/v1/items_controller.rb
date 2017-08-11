@@ -2,7 +2,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
   # The respond_with method is part of the responders gem and will return a JSON object with the results of each action in the controller.
 
   def index
-    respond_with Item.all
+    respond_with Item.all.order(created_at: :desc)
   end
 
   def create

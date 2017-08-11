@@ -6,7 +6,8 @@ var NewItem = React.createClass({
       url: '/api/v1/items',
       type: 'POST',
       data: { item: {name: name, description: description }},
-      success: (response) => {
+      success: (item) => {
+        this.props.handleSubmit(item);
       }
     });
   },
