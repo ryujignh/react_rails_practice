@@ -4,13 +4,16 @@ var Item = React.createClass({
     return {editable: false}
   },
 
+  // Step 1 for updating item
   handleEdit() {
     if(this.state.editable) {
       var name = this.refs.name.value;
+      var id = this.props.item.id;
       var description = this.refs.description.value;
-      console.log('in handleEdit', this.state.editable, name, description)
+      var item = {id: id, name: name, description: description};
+      this.props.handleUpdate(item);
     }
-    this.setState({editable: !this.state.editable})
+    this.setState({ editable: !this.state.editable })
   },
 
   render() {

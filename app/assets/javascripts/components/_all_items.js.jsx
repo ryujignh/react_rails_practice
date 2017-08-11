@@ -3,27 +3,16 @@
 
 var AllItems = React.createClass({
 
-  handleEdit() {
-
+  // Step 2 for updating item
+  onUpdate(item) {
+    this.props.onUpdate(item);
   },
 
   handleDelete(id) {
     this.props.handleDelete(id);
   },
 
-  // Step 1
-  // Here we are initializing items object as empty array.
-  // getInitialState() {
-  //   return { items: [] }
-  // },
-
-  // // Step 2
-  // // Here we are fetching items and assign the response to items object defined above.
-  // componentDidMount() {
-  //   $.getJSON('/api/v1/items.json', (response) => {this.setState({ items: response }) });
-  // },
-
-  // Step 3
+  // Step 3 for rendering items object
   // Rendering items object
   render() {
     var items = this.props.items.map((item) => {
@@ -32,7 +21,7 @@ var AllItems = React.createClass({
         <div key={item.id}>
           <Item item={item}
             handleDelete={this.handleDelete.bind(this, item.id)}
-            handleEdit={this.handleEdit}/>
+            handleUpdate={this.onUpdate}/>
         </div>
       )
     });
