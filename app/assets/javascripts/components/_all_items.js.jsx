@@ -3,6 +3,10 @@
 
 var AllItems = React.createClass({
 
+  handleEdit() {
+
+  },
+
   handleDelete(id) {
     this.props.handleDelete(id);
   },
@@ -26,9 +30,9 @@ var AllItems = React.createClass({
       return (
         // When we iterate through items in React, there must be a way to identify each item into the component’s DOM. For that, we’ll use a unique attribute of each item, also known as key. To add a key to the item, we need to use the key attribute in the div that wraps it, like this:
         <div key={item.id}>
-          <h3>{item.name}</h3>
-          <p>{item.description}</p>
-          <button onClick={this.handleDelete.bind(this, item.id)}>Delete</button>
+          <Item item={item}
+            handleDelete={this.handleDelete.bind(this, item.id)}
+            handleEdit={this.handleEdit}/>
         </div>
       )
     });
